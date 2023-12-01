@@ -1,8 +1,8 @@
-from oktaloginwrapper import OktaLoginWrapper as OLW
+#from oktaloginwrapper import OktaLoginWrapper as OLW
 import getpass
 from datetime import datetime
 from email.utils import parsedate_to_datetime
-import js2p
+import requests
 username, password = None, None
 
 
@@ -34,7 +34,7 @@ class CookieManager():
         return cookie_string, headers, expires_datetime
     def format_cookie(self, cookies):
         cookie_string = ''
-        cookie_items = items = [*response.cookies.get_dict()]
+        cookie_items = [*cookies]
         cookie_items.sort()
         for item in [*cookie_items]:
             cookie = cookies[item]
@@ -46,9 +46,15 @@ class CookieManager():
 
 
 
+def next_step(headers):
+    url = 'https://www.vons.com/ueene-suffe-and-swort-it-know-tenda-Enter-I-dist'
+    response = requests.get(url=url, headers=headers)
+    return response
 
-
-
+def next_step(headers):
+    url = 'https://www.vons.com/etc.clientlibs/wcax-commons/clientlibs/clientlib-jquery.min.1f2d1b7c8142fad2b09a92d1f906596e.js'
+    response = requests.get(url=url, headers=headers)
+    return response
 
 
 
