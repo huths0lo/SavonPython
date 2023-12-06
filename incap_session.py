@@ -1,5 +1,7 @@
 from __future__ import absolute_import
 
+# Copy of incapsula-cracker-py3
+
 import re
 import logging
 import datetime
