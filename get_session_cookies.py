@@ -27,6 +27,7 @@ def phase_one():
     phase_one_respone = session.get('https://www.vons.com')
     return session, phase_one_respone
 
+session, phase_one_respone = phase_one()
 
 adobe_headers = {
 'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
