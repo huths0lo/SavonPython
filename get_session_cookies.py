@@ -25,7 +25,7 @@ def phase_one():
         'accept-encoding': 'gzip, deflate, br' 'accept-language: en-US,en;q=0.9'
     }
     phase_one_respone = session.get('https://www.vons.com')
-    return phase_one_respone
+    return session, phase_one_respone
 
 
 adobe_headers = {
