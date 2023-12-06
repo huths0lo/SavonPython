@@ -10,8 +10,8 @@ from six.moves.urllib.parse import quote, urlsplit
 
 from requests import Session
 
-from .parsers import WebsiteResourceParser, IframeResourceParser
-from .errors import RecaptchaBlocked, MaxRetriesExceeded
+from parsers import WebsiteResourceParser, IframeResourceParser
+from errors import RecaptchaBlocked, MaxRetriesExceeded
 
 logger = logging.getLogger('incapsula')
 
