@@ -10,7 +10,7 @@ from six.moves.urllib.parse import urlsplit
 
 from requests import Session
 
-from parsers import WebsiteResourceParser, IframeResourceParser
+from incap_cracker_py3.parsers import WebsiteResourceParser, IframeResourceParser
 from incap_cracker_py3.errors import RecaptchaBlocked, MaxRetriesExceeded
 
 logger = logging.getLogger('incapsula')
