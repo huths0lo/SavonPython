@@ -1,6 +1,6 @@
 import random
 import httpx
-import codecs
+import subprocess
 
 
 user_agent_list = [
