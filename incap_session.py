@@ -119,8 +119,8 @@ class IncapSession(Session):
         for char in char_list:
             code = code + chr(char)
         sl_search = re.search('sl = "(.+)";', code)
-            if sl_search:
-                return sl_search.group(1)
+        if sl_search:
+            return sl_search.group(1)
         return None
 
     def _get_incapsula_asl(self, dd, sl):
