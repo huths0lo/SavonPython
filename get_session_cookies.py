@@ -8,9 +8,9 @@ user_agent_list = [
 	'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
 ]
 
-
-session = IncapSession()
-session.headers = {
+def phase_one():
+    session = IncapSession()
+    session.headers = {
         'upgrade-insecure-requests': '1',
         'user-agent': random.choice(user_agent_list),
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
@@ -20,12 +20,13 @@ session.headers = {
         'sec-fetch-user': '?1',
         'sec-fetch-dest': 'document',
         'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
-        'sec-ch-ua-mobile': '?0',sess
+        'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'en-US,en;q=0.9'
+        'accept-encoding': 'gzip, deflate, br' 'accept-language: en-US,en;q=0.9'
     }
-response = session.get('https://www.vons.com')
+    phase_one_respone = session.get('https://www.vons.com')
+    return phase_one_respone
+
 
 adobe_headers = {
 'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
