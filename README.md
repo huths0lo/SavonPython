@@ -39,3 +39,9 @@ This all occurs when first loading the web page, and before a user has set any s
 
 #### What this tool does
 
+Although I had written my own tools to do some of the js interpretation, I found the incap_cracker_py3 library towards the end, and found they had generally resolved the hurdles I couldnt overcome.  I have copied the needed scripts in to this app.  Credit to them for that code.
+https://github.com/ziplokk1/incapsula-cracker-py3/tree/master
+
+Using the incapsula library, a new requests session is generated.  This session is wrapped with some tools that identify the incapsula url/js files, and interprets what they would otherwise do within the iframe of your browser.  This makes it so the session can collect the needed cookies to browse vons.com.  The get_session_cookies script runs through the entire flow that is necessary to log on to vons.com with your email address and password.  With that completed, it then makes an api call to find all of the coupons available to your account.  It then parses to coupons that are not yet clipped.  And finally it clips each coupon.
+
+## One important note.  Even though it uses a password, vons.com defaults to a one time passcode.  So every time this runs, you will get an OTP email from vons.
