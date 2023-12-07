@@ -70,7 +70,10 @@ def post_clip(session, clip_id, item_type, store_id):
         'connection': 'keep-alive'
     }
     payload = {"items":[{"clipType":"C","itemId":str(clip_id),"itemType":item_type},{"clipType":"L","itemId":str(clip_id),"itemType":item_type}]}
-    response = session.post(url=url, json=payload, timeout=30)
+    try:
+        response = session.post(url=url, json=payload, timeout=30)
+    except:
+        print("Timeout clipping coupon")
     return response, session
 
 def clip_all_coupons():
