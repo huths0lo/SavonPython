@@ -340,3 +340,4 @@ def run_logon(username, password):
     final_refresh_session, final_refresh_response = final_refresh(post_okta_session)
     return final_refresh_session, final_refresh_response
 
+#final_refresh_session, final_refresh_response = run_logon(username, password)
