@@ -1,6 +1,6 @@
-from __future__ import absolute_import
-
-# Copy of incapsula-cracker-py3
+# Minimally modified
+# Changed Resource code from SWKMTFSR to SWJIYLWA, which is what I saw vons.com using
+# Updated imports to correct folder, and removed future imports header
 
 import re
 import logging
@@ -144,7 +144,8 @@ class IncapSession(Session):
 
     def get_incapsula_resource_url(self, scheme, host):
         rdm = random.random()
-        return scheme + '://' + host + '/_Incapsula_Resource?SWKMTFSR=1&e={}'.format(rdm)
+        #return scheme + '://' + host + '/_Incapsula_Resource?SWKMTFSR=1&e={}'.format(rdm)
+        return scheme + '://' + host + '/_Incapsula_Resource?SWJIYLWA=1&e={}'.format(rdm)
 
     def crack(self, resp, org=None, tries=0):
         # Use to hold the original request so that when attempting the new unblocked request, we have a reference

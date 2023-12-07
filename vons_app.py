@@ -51,7 +51,7 @@ def get_coupons(session, store_id, coupons):
 
 def get_all_unclipped(all_coupons):
     unclipped = []
-    for item in all_coupons:
+    for item in all_coupons[0]:
         if item['status'] == 'U':
             unclipped.append([item['offerId'], item['offerPgm'], item['name']])
     return unclipped
@@ -74,6 +74,7 @@ def post_clip(session, clip_id, item_type, store_id):
     return response, session
 
 def clip_all_coupons():
+    global session
     set_user_agent()
     session, logon_response = run_logon(username, password)
     all_coupons = get_coupons(session, store_id, coupons)
