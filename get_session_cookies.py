@@ -98,8 +98,8 @@ def phase_two(session):
 
 def phase_three(session, phase_one_response):
     # Finish Incapsula
-    #session.cookies.set(name='___utmvc', value='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')
     resource_url=get_incapsula_resource_url(phase_one_response)
+    url = 'https://www.vons.com/' + resource_url
     session.headers = {
         'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
         'accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
@@ -114,7 +114,7 @@ def phase_three(session, phase_one_response):
         'accept-encoding': 'gzip, deflate, br',
         'accept-language': 'en-US,en;q=0.9'
     }
-    phase_three_response = session.get(resource_url, True)
+    phase_three_response = session.get(url, True)
     return session, phase_three_response
 
 
@@ -251,7 +251,7 @@ def post_password(password, state_token, okta_id, session):
     payload = {
     "passCode": password,
     "stateToken": state_token
-    },
+    }
     url = f'https://www.vons.com/abs/pub/cnc/csmsservice/api/csms/authn/factors/password/okta/{okta_id}/verify'
     session.headers = {
         'x-swy-correlation-id': '0f1745d4-f933-439b-bdb8-145f59945c7f',
@@ -300,7 +300,7 @@ def post_okta_auth(okta_session, session):
         'accept-encoding': 'gzip, deflate, br',
         'accept-language': 'en-US,en;q=0.9'
     }
-    post_okta_response = session.get(url)
+    post_okta_response = session.get(url, True)
     return session, post_okta_response
 
 def final_refresh(session):
