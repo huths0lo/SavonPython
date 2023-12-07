@@ -132,7 +132,10 @@ class IncapSession(Session):
         return asl
 
     def _apply_cookies(self, original_url, incapsula_script_url):
-        b = self._get_incapsula_b('https://www.vons.com'+ incapsula_script_url)
+        split = urlsplit(original_url)
+        scheme = split.scheme
+        host = split.netloc
+        b = self._get_incapsula_b(scheme + '://' + host + incapsula_script_url)
         sl = self._get_incapsula_sl(b)
         if sl:
             # Set the cookie then send request to incap resource to "apply" cookie.

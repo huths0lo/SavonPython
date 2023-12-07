@@ -1,6 +1,7 @@
 from incap_cracker_py3.incap_session import IncapSession
 import json
 import random
+import time
 
 user_agent_list = [
 	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
@@ -113,7 +114,7 @@ def phase_three(session, phase_one_response):
         'accept-encoding': 'gzip, deflate, br',
         'accept-language': 'en-US,en;q=0.9'
     }
-    phase_three_response = session.get(resource_url)
+    phase_three_response = session.get(resource_url, True)
     return session, phase_three_response
 
 
@@ -276,7 +277,7 @@ def post_password(password, state_token, okta_id, session):
         'accept-language': 'en-US,en;q=0.9'
     }
     post_password_response = session.post(url, json=payload)
-    return_payload = json.loads(post_user_response.text)
+    return_payload = json.loads(post_password_response.text)
     okta_session, okta_id = return_payload['sessionToken'], return_payload['oktaId']
     return session, post_password_response, okta_session, okta_id
 
