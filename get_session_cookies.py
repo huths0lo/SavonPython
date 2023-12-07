@@ -3,12 +3,29 @@ import json
 import random
 import time
 
-user_agent_list = [
-	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-	'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-	'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
-]
 
+
+user_agent = None
+
+
+
+
+
+USER_AGENT_LIST = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15'
+    '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"'
+    ]
+
+def set_random_user_agent():
+    global user_agent
+    user_agent = random.choice(USER_AGENT_LIST)
+    return user_agent
 
 def find_incap_ses_cookie(cookies):
     incap_full, incap_key, incap_value = None, None, None
@@ -17,12 +34,12 @@ def find_incap_ses_cookie(cookies):
         if item[:10] == 'incap_ses_':
             incap_full = item
             break
-    i = 0
+    #i = 0
     if incap_full is not None:
         for character in incap_full:
             if character == '=':
                 break
-            i += 1
+            #i += 1
         incap_key = incap_full[:21]
         incap_value = incap_full[22:]
     return [incap_key, incap_value]
@@ -48,14 +65,14 @@ def phase_one():
     session = IncapSession()
     session.headers = {
         'upgrade-insecure-requests': '1',
-        'user-agent': random.choice(user_agent_list),
+        'user-agent': user_agent,
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'sec-gpc': '1',
         'sec-fetch-site': 'none',
         'sec-fetch-mode': 'navigate',
         'sec-fetch-user': '?1',
         'sec-fetch-dest': 'document',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
         'accept-encoding': 'gzip, deflate, br' 'accept-language: en-US,en;q=0.9'
@@ -78,10 +95,10 @@ def phase_two(session):
     url = 'https://albertsons.okta.com/api/v1/sessions/me/lifecycle/refresh'
     headers = {
         'content-length': '0',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': '*/*',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'origin': 'https://www.vons.com',
@@ -101,10 +118,10 @@ def phase_three(session, phase_one_response):
     resource_url=get_incapsula_resource_url(phase_one_response)
     url = 'https://www.vons.com/' + resource_url
     session.headers = {
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'sec-fetch-site': 'same-origin',
@@ -123,11 +140,11 @@ def phase_four(session):
     # Get user cookie
     url = 'https://www.vons.com/bin/safeway/unified/userinfo?rand=101454&banner=vons'
     session.headers = {
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': '*/*',
         'x-requested-with': 'XMLHttpRequest',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'sec-fetch-site': 'same-origin',
@@ -144,10 +161,10 @@ def phase_five(session):
     # Complete Okta
     url = 'https://albertsons.okta.com/oauth2/ausp6soxrIyPrm8rS2p6/v1/authorize?client_id=0oap6ku01XJqIRdl42p6&redirect_uri=https://www.vons.com/bin/safeway/unified/sso/authorize&response_type=code&response_mode=query&state=joyous-boy-camden-obeisant&nonce=ovJgrUobDYQKhiownVT9jU1GvtkRdpC4Eoyal2SfgGu6ezXG5b03393l08xbDGw8&scope=openid%20profile%20email%20offline_access%20used_credentials&sessionToken=20111p7BWShOmlAIP3XQBvNTSz207eTAoPEozE9inKzjwNqKe_tJbnK'
     session.headers = {
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'sec-fetch-site': 'cross-site',
@@ -166,10 +183,10 @@ def phase_six(session):
     url = 'https://www.vons.com/bin/safeway/unified/sso/authorize?code=_Q16nrSgJiGznZFxndq_B5loXJ0hW2wysXrs8ho8u6o&state=joyous-boy-camden-obeisant'
     session.headers = {
         'upgrade-insecure-requests': '1',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'sec-fetch-site': 'cross-site',
@@ -189,10 +206,10 @@ def get_token(session):
     url = 'https://www.vons.com/ueene-suffe-and-swort-it-know-tenda-Enter-I-dist?d=www.vons.com'
     headers = {
         'upgrade-insecure-requests': '1',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'application/json; charset=utf-8',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'content-type': 'text/plain; charset=utf-8',
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
@@ -227,10 +244,10 @@ def post_username(username, session):
         'x-swy-banner': 'vons',
         'upgrade-insecure-requests': '1',
         'ocp-apim-subscription-key': '9e38e3f1d32a4279a49a264e0831ea46',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'application/vnd.safeway.v1+json',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'content-type': 'application/vnd.safeway.v1+json',
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
@@ -260,10 +277,10 @@ def post_password(password, state_token, okta_id, session):
         'x-swy-banner': 'vons',
         'upgrade-insecure-requests': '1',
         'ocp-apim-subscription-key': '9e38e3f1d32a4279a49a264e0831ea46',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'application/vnd.safeway.v1+json',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'content-type': 'application/vnd.safeway.v1+json',
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
@@ -286,10 +303,10 @@ def post_okta_auth(okta_session, session):
     url = f'https://albertsons.okta.com/oauth2/ausp6soxrIyPrm8rS2p6/v1/authorize?client_id=0oap6ku01XJqIRdl42p6&redirect_uri=https://www.vons.com/bin/safeway/unified/sso/authorize&response_type=code&response_mode=query&state=damp-education-orono-dry&nonce=ovJgrUobDYQKhiownVT9jU1GvtkRdpC4Eoyal2SfgGu6ezXG5b03393l08xbDGw8&scope=openid%20profile%20email%20offline_access%20used_credentials&sessionToken={okta_session}'
     session.headers = {
         'upgrade-insecure-requests': '1',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'sec-fetch-site': 'cross-site',
@@ -307,10 +324,10 @@ def final_refresh(session):
     url = 'https://albertsons.okta.com/api/v1/sessions/me/lifecycle/refresh'
     headers = {
         'content-length': '0',
-        'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': user_agent,
         'accept': '*/*',
         'sec-ch-ua-mobile': '?0',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'user-agent': user_agent,
         'sec-ch-ua-platform': '"Windows"',
         'sec-gpc': '1',
         'origin': 'https://www.vons.com',
