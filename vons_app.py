@@ -71,7 +71,7 @@ def post_clip(session, clip_id, item_type, store_id):
     }
     payload = {"items":[{"clipType":"C","itemId":str(clip_id),"itemType":item_type},{"clipType":"L","itemId":str(clip_id),"itemType":item_type}]}
     try:
-        response = session.post(url=url, json=payload, timeout=30)
+        response = session.post(url=url, json=payload, timeout=5)
     except:
         print("Timeout clipping coupon")
     return response, session
