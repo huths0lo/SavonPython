@@ -228,6 +228,8 @@ def get_token(session):
     session.cookies.set(name='reese84', value=token, expires=expires)
     return session, get_token_response
 
+ # You will need to watch your own browser to grab this info once.  The hash probably uses a salt value in some of their javascript. I havent found this yet, so I havent found a way to automate it out of a hash of your email.
+
 def post_username(username, session):
     payload = {
     "context": {
@@ -263,6 +265,9 @@ def post_username(username, session):
     return_payload = json.loads(post_user_response.text)
     state_token, okta_id = return_payload['stateToken'], return_payload['oktaId']
     return session, post_user_response, state_token, okta_id
+
+# I dont know if the date header just validates the correlation id, or what exactly.  This may need to change for you, and may also need to rotate at some point.  But it does continue to work for me.
+# I'll sort that out through automation in the future.
 
 def post_password(password, state_token, okta_id, session):
     payload = {
