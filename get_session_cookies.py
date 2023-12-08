@@ -91,7 +91,8 @@ def phase_one():
 
 
 def phase_two(session):
-    # initiate call to Okta
+    # initiate call to Okta.  Get a placeholder cookie.  This also is always a 400 status code.
+    # Basically okta doesnt know who you are, so it responds as not authorized, and gives you a token to come back with later.
     url = 'https://albertsons.okta.com/api/v1/sessions/me/lifecycle/refresh'
     headers = {
         'content-length': '0',
@@ -114,7 +115,8 @@ def phase_two(session):
 
 
 def phase_three(session, phase_one_response):
-    # Finish Incapsula
+    # Finish Incapsula.  In a web browser, this would be called up in a hidden iframe, using the tokens recieved at this point.  The url is highly obfuscated within the js payload.  We're getting the info, and making that call here.
+    # You get.... another cookie.
     resource_url=get_incapsula_resource_url(phase_one_response)
     url = 'https://www.vons.com/' + resource_url
     session.headers = {
@@ -137,7 +139,7 @@ def phase_three(session, phase_one_response):
 
 
 def phase_four(session):
-    # Get user cookie
+    # Get user cookie...another damn cookie
     url = 'https://www.vons.com/bin/safeway/unified/userinfo?rand=101454&banner=vons'
     session.headers = {
         'sec-ch-ua': user_agent,
@@ -332,6 +334,7 @@ def post_okta_auth(okta_session, session):
 
 def final_refresh(session):
     # Refreshes happen allot. These cookies expire fast.  In standard tradition, I'm calling an immediate refresh once I've completed all the logon steps.
+    # For future travelers, you would just call this step continuously to keep your cookies fresh.
     url = 'https://albertsons.okta.com/api/v1/sessions/me/lifecycle/refresh'
     headers = {
         'content-length': '0',
