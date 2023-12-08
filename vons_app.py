@@ -25,6 +25,7 @@ def set_user_agent():
 
 
 def get_coupons(session, store_id, coupons):
+    # You have a lovely website.  Now would you mind just giving me all my coupons?  Thanks.
     url = f'https://www.vons.com/abs/pub/xapi/offers/companiongalleryoffer?storeId={store_id}&rand={coupons}'
     session.headers = {
         'user-agent': user_agent,
