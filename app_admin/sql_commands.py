@@ -1,4 +1,4 @@
-# Database Schema.  Used if a new database is created.
+# Database Schema.  Used if a new database is created..
 
 DB_SCHEMA = """
 --
