@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Javascript
+*.js
+
+
 # C extensions
 *.so
 
