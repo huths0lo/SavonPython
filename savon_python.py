@@ -3,9 +3,9 @@ from sqlite3 import Error as SQLError
 import os
 import sys
 
-from db_schema import DB_SCHEMA
+from db_commands import DB_SCHEMA
 
-db_path = os.getcwd()
+db_path = os.getcwd() + '\app_db'
 db_file_extension = '.sqlite'
 
 import os, fnmatch
@@ -55,6 +55,8 @@ def create_new_db():
         sys.exit()
     print(f'New database file created: {db_path}/{db_file}')
     return db_file
+
+def confirm_db_schema():
 
 
 

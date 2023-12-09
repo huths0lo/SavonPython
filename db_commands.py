@@ -14,3 +14,8 @@ DB_SCHEMA = [
         end_date text
         ); """,
 ]
+
+DB_TEST_COMMANDS = [
+    'SELECT * FROM user_accounts;',
+    'SELECT * FROM control;'
+]
