@@ -3,7 +3,7 @@ import pandas.io.sql as psql
 from app_admin.check_create_db import find_db_else_create_new
 
 db_file = find_db_else_create_new()
-db_uri = f"SQLite:///{db_file}/savon_python"
+db_uri = f'sqlite:///{db_file}'
 
 
 
