@@ -3,7 +3,7 @@ from sqlite3 import Error
 import os
 import sys
 
-from app_admin.sql_commands import DB_SCHEMA
+from app_admin.sql_commands import DB_SCHEMA, DB_TEST_COMMANDS
 
 db_path = os.getcwd() + '\app_db'
 db_file_extension = '.sqlite'
@@ -18,14 +18,14 @@ def find(pattern, path):
     return result
 
 def find_db_else_create_new():
-    db_files = find(db_file_extension, db_path)
-    if len(db_files) == 0:
+    db_file = find(db_file_extension, db_path)
+    if len(db_file) == 0:
         print('\nNo database file found!  DB Setup will now run.')
         db_file = [create_new_db()]
     if len(db_files) == 0:
         print('\nFailed to connect to db.  Aborting.\n')
         sys.exit()
-
+    return db_file[0]
 
 
 def create_new_db():
@@ -54,9 +54,21 @@ def create_new_db():
         print('\nFailed to create db file.  Aborting.\n')
         sys.exit()
     print(f'New database file created: {db_path}/{db_file}')
+    confirm_db_schema(db_file)
     return db_file
 
-def confirm_db_schema():
+def confirm_db_schema(db_file):
+    conn = sqlite3.connect(db_file)
+    for sql_command in DB_TEST_COMMANDS:
+        try:
+            c = conn.cursor()
+            test = c.fetchone(sql_command)
+        except Error as e:
+            print(e)
+            print('\nDatabase integrity check failed!\n')
+            sys.exit()
+    print('Database integrity confirmed!')
+    return
 
 
 
