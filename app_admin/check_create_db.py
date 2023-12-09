@@ -4,6 +4,7 @@ import os
 import sys
 import fnmatch
 
+
 from app_admin.sql_commands import DB_SCHEMA, DB_TEST_COMMANDS
 
 db_path = os.getcwd() + '/app_db/'
@@ -24,10 +25,7 @@ def find_db_else_create_new():
     if len(db_file) == 0:
         print('\nNo database file found!  DB Setup will now run.')
         db_file = [create_new_db()]
-    else:
-        for file in db_file:
-            file = db_path + file
-    if len(db_files) == 0:
+    if len(db_file) == 0:
         print('\nFailed to connect to db.  Aborting.\n')
         sys.exit()
     return db_file[0]
