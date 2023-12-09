@@ -1,4 +1,4 @@
 >>> post_user_response.text
-'{"oktaId":"REMOVED","stateToken":"00EJA5vLmE5A6gLeqeTJsRnGcbp-olj4T89r1s2qiJ","expiresAt":"2023-12-09T04:15:47Z","factorType":"email","status":"ACTIVE","userId":"REMOVED","factors":[{"id":"password","factorType":"password"},{"id":"emf6cf4asbyCo73aS2p7","factorType":"email","email":"REMOVED"}]}'
+'{"oktaId":"REMOVED","stateToken":"REMOVED","expiresAt":"2023-12-09T04:15:47Z","factorType":"email","status":"ACTIVE","userId":"REMOVED","factors":[{"id":"password","factorType":"password"},{"id":"emf6cf4asbyCo73aS2p7","factorType":"email","email":"REMOVED"}]}'
 >>> post_user_response.headers
 {'Content-Type': 'application/vnd.safeway.v1+json', 'X-Aci-Authn-Type': 'CSMS001E', 'X-Vcap-Request-Id': '4ec4e1ca-b64d-4fc9-5e3a-458526f3d74d', 'Date': 'Sat, 09 Dec 2023 04:10:47 GMT', 'Connection': 'keep-alive', 'Akamai-GRN': '0.9877d917.1702095047.d0a90c71', 'Set-Cookie': 'nlbi_1610354=Hsf1R+Mj7jCDHrfLwfGJNgAAAAAslujLZE5wjgckGwWjYZdJ; path=/', 'X-CDN': 'Imperva', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked', 'X-Iinfo': '10-52766459-52766914 PNYN RT(1702095006563 39516) q(0 0 0 -1) r(8 8) U24'}
