@@ -5,7 +5,7 @@ import sys
 
 from app_admin.sql_commands import DB_SCHEMA, DB_TEST_COMMANDS
 
-db_path = os.getcwd() + '\app_db'
+db_path = os.getcwd() + '/app_db/'
 db_file_extension = '.sqlite'
 
 import os, fnmatch
@@ -22,6 +22,9 @@ def find_db_else_create_new():
     if len(db_file) == 0:
         print('\nNo database file found!  DB Setup will now run.')
         db_file = [create_new_db()]
+    else:
+        for file in db_file:
+            file = db_path + file
     if len(db_files) == 0:
         print('\nFailed to connect to db.  Aborting.\n')
         sys.exit()
@@ -36,9 +39,9 @@ def create_new_db():
             sys.exit()
     db_file = input('What would you like to name the database file? (default: savonpy_db) - Press enter for default: ')
     if db_file == '':
-        db_file = 'savonpy_db' + db_file_extension
+        db_file = db_path + 'savonpy_db' + db_file_extension
     else:
-        db_file = db_file + db_file_extension
+        db_file = db_path + db_file + db_file_extension
     conn = None
     try:
         conn = sqlite3.connect(db_file)
@@ -53,7 +56,7 @@ def create_new_db():
     if not create_db_schema(db_file):
         print('\nFailed to create db file.  Aborting.\n')
         sys.exit()
-    print(f'New database file created: {db_path}/{db_file}')
+    print(f'New database file created: {db_file}')
     confirm_db_schema(db_file)
     return db_file
 
