@@ -1,0 +1,105 @@
+<!DOCTYPE html>\n<!--[if IE 7]>
+<html lang="en" class="lt-ie10 lt-ie9 lt-ie8">
+   <![endif]-->\n<!--[if IE 8]>
+   <html lang="en" class="lt-ie10 lt-ie9">
+      <![endif]-->\n<!--[if IE 9]>
+      <html lang="en" class="lt-ie10">
+         <![endif]-->\n<!--[if gt IE 9]>
+         <html lang="en">
+            <![endif]-->\n<!--[if !IE]><!-->
+            <html lang="en">
+               <!--<![endif]-->\n
+               <head>
+                  \n
+                  <meta charset="UTF-8">
+                  \n\n    <script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">if (typeof module === \'object\') {window.module = module; module = undefined;}</script>
+                  <style type="text/css" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n        .bgStyle {\n          background-image: none\n        }\n        .bgStyleIE8 {\n          \n        }\n        .copyright a:focus-visible, \n        .privacy-policy a:focus-visible {\n          border-radius: 6px;\n          outline: rgb(84, 107, 231) solid 1px;\n          outline-offset: 2px;\n          text-decoration: none !important;\n        }\n    </style>
+                  <title>Albertsons Companies - Sign In</title>
+                  \n
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  \n
+                  <meta name="robots" content="noindex,nofollow" />
+                  \n\n    <script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">window.cspNonce = \'oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA\';</script><script src="https://ok6static.oktacdn.com/assets/js/sdk/okta-signin-widget/7.12.2/js/okta-sign-in.min.js" type="text/javascript"></script>\n
+                  <link href="https://ok6static.oktacdn.com/assets/js/sdk/okta-signin-widget/7.12.2/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+                  \n\n
+                  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+                  \n
+                  <link href="https://ok6static.oktacdn.com/assets/loginpage/css/loginpage-theme.7266b8318cd7a71710311515ab15c462.css" rel="stylesheet" type="text/css"/>
+                  <link href="/api/internal/brand/theme/style-sheet?touch-point=SIGN_IN_PAGE&v=abc4780733b2999dc5536ea4bf18a7237d32beafe91e2f7611b8af3ecb8ae0d0dfb208992a3b1ecefd0c0f9333f4b59d" rel="stylesheet" type="text/css">
+                  \n\n    <script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n        var okta = {\n            locale: \'en\',\n            deployEnv: \'PROD\'\n        };\n    </script><script nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">window.okta || (window.okta = {}); okta.cdnUrlHostname = "//ok6static.oktacdn.com"; okta.cdnPerformCheck = false;</script><script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">if (window.module) module = window.module;</script>
+               </head>
+               \n
+               <body class="auth okta-container">
+                  \n\n<!--[if gte IE 8]>\n  <![if lte IE 10]>\n\n
+                  <style type="text/css" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n    .unsupported-browser-banner-wrap {\n      padding: 20px;\n      border: 1px solid #ddd;\n      background-color: #f3fbff;\n    }\n    .unsupported-browser-banner-inner {\n      position: relative;\n      width: 735px;\n      margin: 0 auto;\n      text-align: left;\n    }\n    .unsupported-browser-banner-inner .icon {\n      vertical-align: top;\n      margin-right: 20px;\n      display: inline-block;\n      position: static !important;\n    }\n    .unsupported-browser-banner-inner a {\n      text-decoration: underline;\n    }\n     </style>
+                  <div class="unsupported-browser-banner-wrap">
+                     \n
+                     <div class="unsupported-browser-banner-inner">\n        <span class="icon icon-16 icon-only warning-16-yellow"></span>You are using an unsupported browser. For the best experience, update to <a href="https://support.okta.com/help/s/article/Okta-Browser-and-OS-Support-Policy">a supported browser</a>.</div>
+                     \n
+                  </div>
+                  \n\n  <![endif]>\n<![endif]-->\n<!--[if IE 8]>
+                  <div id="login-bg-image-ie8" class="login-bg-image tb--background bgStyleIE8" data-se="login-bg-image"></div>
+                  <![endif]-->\n<!--[if (gt IE 8)|!(IE)]><!-->
+                  <div id="login-bg-image" class="login-bg-image tb--background bgStyle" data-se="login-bg-image"></div>
+                  <!--<![endif]-->\n\n<!-- hidden form for reposting fromURI for X509 auth -->\n
+                  <form action="/login/cert" method="post" id="x509_login" name="x509_login" class="hide">\n    <input type="hidden" id="fromURI" name="fromURI" class="hidden" value="&#x2f;oauth2&#x2f;v1&#x2f;authorize&#x2f;redirect&#x3f;okta_key&#x3d;TosSu-2PAJSzCcmrmvQBBVhNBgCHIZyHpn4CUJI9bvI"/>\n</form>
+                  \n\n
+                  <div class="content">
+                     \n
+                     <style type="text/css" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n    .noscript-msg {\n        background-color: #fff;\n        border-color: #ddd #ddd #d8d8d8;\n        box-shadow:0 2px 0 rgba(175, 175, 175, 0.12);\n        text-align: center;\n        width: 398px;\n        min-width: 300px;\n        margin: 200px auto;\n        border-radius: 3px;\n        border-width: 1px;\n        border-style: solid;\n    }\n\n    .noscript-content {\n        padding: 42px;\n    }\n\n    .noscript-content h2 {\n        padding-bottom: 20px;\n    }\n\n    .noscript-content h1 {\n        padding-bottom: 25px;\n    }\n\n    .noscript-content a {\n        background: transparent;\n        box-shadow: none;\n        display: table-cell;\n        vertical-align: middle;\n        width: 314px;\n        height: 50px;\n        line-height: 36px;\n        color: #fff;\n        background: linear-gradient(#007dc1, #0073b2), #007dc1;\n        border: 1px solid;\n        border-color: #004b75;\n        border-bottom-color: #00456a;\n        box-shadow: rgba(0, 0, 0, 0.15) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;\n        -webkit-border-radius: 3px;\n        border-radius: 3px;\n    }\n\n    .noscript-content a:hover {\n        background: #007dc1;\n        cursor: hand;\n        text-decoration: none;\n    }\n </style>
+                     <noscript>
+                        \n
+                        <div id="noscript-msg" class="noscript-msg">
+                           \n
+                           <div class="noscript-content">
+                              \n
+                              <h2>Javascript is required</h2>
+                              \n
+                              <h1>Javascript is disabled on your browser.&nbspPlease enable Javascript and refresh this page.</h1>
+                              \n            <a href="." class="tb--button">Refresh</a>\n
+                           </div>
+                           \n
+                        </div>
+                        \n
+                     </noscript>
+                     \n
+                     <div id="signin-container"></div>
+                     \n
+                     <div id="okta-sign-in" class="auth-container main-container hide">
+                        \n
+                        <div id="unsupported-onedrive" class="unsupported-message hide">
+                           \n
+                           <h2 class="o-form-head">Your OneDrive version is not supported</h2>
+                           \n
+                           <p>Upgrade now by installing the OneDrive for Business Next Generation Sync Client to login to Okta</p>
+                           \n        <a class="button button-primary tb--button" target="_blank" href="https://support.okta.com/help/articles/Knowledge_Article/Upgrading-to-OneDrive-for-Business-Next-Generation-Sync-Client">\n          Learn how to upgrade</a>\n
+                        </div>
+                        \n
+                        <div id="unsupported-cookie" class="unsupported-message hide">
+                           \n
+                           <h2 class="o-form-head">Cookies are required</h2>
+                           \n
+                           <p>Cookies are disabled on your browser. Please enable Cookies and refresh this page.</p>
+                           \n          <a class="button button-primary tb--button" target="_blank" href=".">\n              Refresh</a>\n
+                        </div>
+                        \n
+                     </div>
+                     \n
+                  </div>
+                  \n\n
+                  <div class="footer">
+                     \n
+                     <div class="footer-container clearfix">
+                        \n
+                        <p class="copyright">Powered by <a href="http://www.okta.com/" class="inline-block notranslate">Okta</a></p>
+                        \n
+                        <p class="privacy-policy"><a href="/privacy" target="_blank" class="inline-block margin-l-10">Privacy Policy</a></p>
+                        \n
+                     </div>
+                     \n
+                  </div>
+                  \n\n<script nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA" type="text/javascript">function runLoginPage (fn) {var mainScript = document.createElement(\'script\');mainScript.src = \'https://ok6static.oktacdn.com/assets/js/mvc/loginpage/initLoginPage.pack.58de3be0c9b511a0fdfd7ea4f69b56fc.js\';mainScript.crossOrigin = \'anonymous\';mainScript.integrity = \'sha384-cJ4LGViZBmIttMPH+ao2RyPuN5BztKWYWIa4smbm56r1cUhkU/Dr6vTS3UoPbKTI\';document.getElementsByTagName(\'head\')[0].appendChild(mainScript);fn && mainScript.addEventListener(\'load\', function () { setTimeout(fn, 1) });}</script><script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n(function(){\n  var baseUrl = \'https\\x3A\\x2F\\x2Falbertsons.okta.com\';\n  var suppliedRedirectUri = \'\';\n  var repost = false;\n  var stateToken = \'00sfdy3YgKR3TAwiP1ieimkrVU8iazNBAfMNp4e1_T\';\n  var fromUri = \'\\x2Foauth2\\x2Fv1\\x2Fauthorize\\x2Fredirect\\x3Fokta_key\\x3DTosSu\\x2D2PAJSzCcmrmvQBBVhNBgCHIZyHpn4CUJI9bvI\';\n  var username = \'\';\n  var rememberMe = true;\n  var smsRecovery = true;\n  var callRecovery = false;\n  var emailRecovery = true;\n  var usernameLabel = \'Username\';\n  var usernameInlineLabel = \'\';\n  var passwordLabel = \'Password\';\n  var passwordInlineLabel = \'\';\n  var signinLabel = \'Sign\\x20In\';\n  var forgotpasswordLabel = \'Forgot\\x20password\\x3F\';\n  var unlockaccountLabel = \'Unlock\\x20account\\x3F\';\n  var helpLabel = \'Help\';\n  var orgSupportPhoneNumber = \'\';\n  var hideSignOutForMFA = true;\n  var hideBackToSignInForReset = false;\n  var footerHelpTitle = \'Need\\x20help\\x20signing\\x20in\\x3F\';\n  var recoveryFlowPlaceholder = \'Email\\x20or\\x20Username\';\n  var signOutUrl = \'\';\n  var authScheme = \'OAUTH2\';\n  var hasPasswordlessPolicy = \'true\';\n  var INVALID_TOKEN_ERROR_CODE = \'errors.E0000011\';\n\n  var securityImage = true;\n  \n      securityImage = false;\n  \n\n\n  var selfServiceUnlock = false;\n  \n    selfServiceUnlock = true;\n  \n\n  var redirectByFormSubmit = false;\n  \n\n  var showPasswordRequirementsAsHtmlList = true;\n\n  var autoPush = false;\n  \n    autoPush = true;\n  \n\n  var accountChooserDiscoveryUrl = \'https://login.okta.com/discovery/iframe.html\';\n\n  // In case of custom app login, the uri is already absolute, so we must not attach baseUrl\n  var redirectUri;\n  if (isAbsoluteUri(fromUri)) {\n      redirectUri = fromUri;\n  } else {\n      redirectUri = baseUrl + fromUri;\n  }\n  \n\n  var backToSignInLink = \'\';\n  \n\n  var customButtons;\n  var pivProperties = {};\n\n  \n\n  var customLinks = [];\n  \n  var factorPageCustomLink = {};\n  \n\n  var linkParams;\n  \n\n  var proxyIdxResponse;\n  \n\n  var stateTokenAllFlows;\n  \n\n  var idpDiscovery;\n  var idpDiscoveryRequestContext;\n  \n\n  var showPasswordToggleOnSignInPage = false;\n  var showIdentifier = false;\n  \n\n  var hasSkipIdpFactorVerificationButton = false;\n  \n\n  var hasOAuth2ConsentFeature = false;\n  var consentFunc;\n  \n    hasOAuth2ConsentFeature = true;\n  \n    consentFunc = {\n      cancel: function() {\n        window.location.href=\'https://albertsons.okta.com/login/step-up/redirect?stateToken=00sfdy3YgKR3TAwiP1ieimkrVU8iazNBAfMNp4e1_T\'\n      }\n    };\n  \n\n  var hasMfaAttestationFeature = false;\n  \n    hasMfaAttestationFeature = true;\n  \n\n  var rememberMyUsernameOnOIE = false;\n  \n\n  var engFastpassMultipleAccounts = true;\n\n  var registration = false;\n  \n\n  var webauthn = true;\n  \n\n    var overrideExistingStateToken = false;\n    \n\n  var isPersonalOktaOrg = false;\n  \n\n  var orgSyncToAccountChooserEnabled = true;\n  \n\n  var showSessionRevocation = false;\n  \n      showSessionRevocation = true;\n  \n\n  var loginPageConfig = {\n    fromUri: fromUri,\n    repost: repost,\n    redirectUri: redirectUri,\n    backToSignInLink: backToSignInLink,\n    isMobileClientLogin: false,\n    isMobileSSO: false,\n    disableiPadCheck: false,\n    enableiPadLoginReload: false,\n    linkParams: linkParams,\n    hasChromeOSFeature: false,\n    showLinkToAppStore: false,\n    accountChooserDiscoveryUrl: accountChooserDiscoveryUrl,\n    mfaAttestation: hasMfaAttestationFeature,\n    isPersonalOktaOrg: isPersonalOktaOrg,\n    enrollingFactor: \'\',\n    stateTokenExpiresAt: \'\',\n    stateTokenRefreshWindowMs: \'\',\n    orgSyncToAccountChooserEnabled: orgSyncToAccountChooserEnabled,\n    inactiveTab: {\n      enabled: false,\n      elementId: \'inactive-tab-main-div\',\n      avoidPageRefresh: true\n    },\n    signIn: {\n      el: \'#signin-container\',\n      baseUrl: baseUrl,\n      brandName: \'Okta\',\n      logo: \'https://ok6static.oktacdn.com/fs/bco/1/fs0eoxotixCTKjaLE2p7\',\n      logoText: \'Albertsons\\x20Companies logo\',\n      helpSupportNumber: orgSupportPhoneNumber,\n      stateToken: stateToken,\n      username: username,\n      signOutLink: signOutUrl,\n      consent: consentFunc,\n      authScheme: authScheme,\n      relayState: fromUri,\n      proxyIdxResponse: proxyIdxResponse,\n      overrideExistingStateToken: overrideExistingStateToken,\n      interstitialBeforeLoginRedirect: \'DEFAULT\',\n      idpDiscovery: {\n        requestContext: idpDiscoveryRequestContext\n      },\n      features: {\n        router: true,\n        securityImage: securityImage,\n        rememberMe: rememberMe,\n        autoPush: autoPush,\n        webauthn: webauthn,\n        smsRecovery: smsRecovery,\n        callRecovery: callRecovery,\n        emailRecovery: emailRecovery,\n        selfServiceUnlock: selfServiceUnlock,\n        multiOptionalFactorEnroll: true,\n        deviceFingerprinting: true,\n        useDeviceFingerprintForSecurityImage: true,\n        trackTypingPattern: false,\n        hideSignOutLinkInMFA: hideSignOutForMFA,\n        hideBackToSignInForReset: hideBackToSignInForReset,\n        rememberMyUsernameOnOIE: rememberMyUsernameOnOIE,\n        engFastpassMultipleAccounts: engFastpassMultipleAccounts,\n        customExpiredPassword: true,\n        idpDiscovery: idpDiscovery,\n        passwordlessAuth: hasPasswordlessPolicy,\n        consent: hasOAuth2ConsentFeature,\n        skipIdpFactorVerificationBtn: hasSkipIdpFactorVerificationButton,\n        showPasswordToggleOnSignInPage: showPasswordToggleOnSignInPage,\n        showIdentifier: showIdentifier,\n        registration: registration,\n        redirectByFormSubmit: redirectByFormSubmit,\n        showPasswordRequirementsAsHtmlList: showPasswordRequirementsAsHtmlList,\n        showSessionRevocation: showSessionRevocation\n      },\n\n      assets: {\n        baseUrl: "https\\x3A\\x2F\\x2Fok6static.oktacdn.com\\x2Fassets\\x2Fjs\\x2Fsdk\\x2Fokta\\x2Dsignin\\x2Dwidget\\x2F7.12.2"\n      },\n\n      language: okta.locale,\n      i18n: {},\n\n      customButtons: customButtons,\n\n      piv: pivProperties,\n\n      helpLinks: {\n        help: \'\',\n        forgotPassword: \'\',\n        unlock: \'\',\n        custom: customLinks,\n        factorPage: factorPageCustomLink\n      },\n\n      cspNonce: window.cspNonce,\n    }\n  };\n  \n\n  loginPageConfig.signIn.i18n[okta.locale] = {\n    \n    \'primaryauth.username.placeholder\': usernameLabel,\n    \'primaryauth.username.tooltip\': usernameInlineLabel,\n    \'primaryauth.password.placeholder\': passwordLabel,\n    \'primaryauth.password.tooltip\': passwordInlineLabel,\n    \'mfa.challenge.password.placeholder\': passwordLabel,\n    \'primaryauth.title\': signinLabel,\n    \'forgotpassword\': forgotpasswordLabel,\n    \'unlockaccount\': unlockaccountLabel,\n    \'help\': helpLabel,\n    \'needhelp\': footerHelpTitle,\n    \'password.forgot.email.or.username.placeholder\': recoveryFlowPlaceholder,\n    \'password.forgot.email.or.username.tooltip\': recoveryFlowPlaceholder,\n    \'account.unlock.email.or.username.placeholder\': recoveryFlowPlaceholder,\n    \'account.unlock.email.or.username.tooltip\': recoveryFlowPlaceholder\n  };\n\n    \n            loginPageConfig.signIn.logoText = \'Albertsons\\x20Companies logo\';\n        \n\n  function isOldWebBrowserControl() {\n    // We no longer support IE7. If we see the MSIE 7.0 browser mode, it\'s a good signal\n    // that we\'re in a windows embedded browser.\n    if (navigator.userAgent.indexOf(\'MSIE 7.0\') === -1) {\n      return false;\n    }\n\n    // Because the userAgent is the same across embedded browsers, we use feature\n    // detection to see if we\'re running on older versions that do not support updating\n    // the documentMode via x-ua-compatible.\n    return document.all && !window.atob;\n  }\n\n  function isAbsoluteUri(uri) {\n    var pat = /^https?:\\/\\//i;\n    return pat.test(uri);\n  }\n\n  var unsupportedContainer = document.getElementById(\'okta-sign-in\');\n\n  var failIfCookiesDisabled = true;\n  \n\n  // Old versions of WebBrowser Controls (specifically, OneDrive) render in IE7 browser\n  // mode, with no way to override the documentMode. In this case, inform the user they need\n  // to upgrade.\n  if (isOldWebBrowserControl()) {\n    document.getElementById(\'unsupported-onedrive\').removeAttribute(\'style\');\n    unsupportedContainer.removeAttribute(\'style\');\n  }\n  else if (failIfCookiesDisabled && !navigator.cookieEnabled) {\n    document.getElementById(\'unsupported-cookie\').removeAttribute(\'style\');\n    unsupportedContainer.removeAttribute(\'style\');\n  }\n  else {\n    unsupportedContainer.parentNode.removeChild(unsupportedContainer);\n    runLoginPage(function () {\n      var res = OktaLogin.initLoginPage(loginPageConfig);\n      \n    });\n  }\n}());\n</script><script type="text/javascript" nonce="oDKHyzlxBR1g3t8cB5sRPnDQ-JO9WZN8Nk6o17HUWSA">\n  window.addEventListener(\'load\', function(event) {\n    function applyStyle(id, styleDef) {\n      if (styleDef) {\n        var el = document.getElementById(id);\n        if (!el) {\n          return;\n        }\n        el.classList.add(styleDef);\n      }\n    }\n    applyStyle(\'login-bg-image\', \'bgStyle\');\n    applyStyle(\'login-bg-image-ie8\', \'bgStyleIE8\');\n  });\n</script>
+               </body>
+               \n
+            </html>
+            \n

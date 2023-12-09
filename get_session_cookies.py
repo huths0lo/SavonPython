@@ -2,6 +2,7 @@ from incap_cracker_py3.incap_session import IncapSession
 import json
 import random
 import time
+import re
 
 
 
@@ -161,6 +162,7 @@ def phase_four(session):
 
 def phase_five(session):
     # Complete Okta - Part 1
+    okta_nonce, okta_key, script_Tegridy, state_token = None, None, None, None
     url = 'https://albertsons.okta.com/oauth2/ausp6soxrIyPrm8rS2p6/v1/authorize?client_id=0oap6ku01XJqIRdl42p6&redirect_uri=https://www.vons.com/bin/safeway/unified/sso/authorize&response_type=code&response_mode=query&state=joyous-boy-camden-obeisant&nonce=ovJgrUobDYQKhiownVT9jU1GvtkRdpC4Eoyal2SfgGu6ezXG5b03393l08xbDGw8&scope=openid%20profile%20email%20offline_access%20used_credentials&sessionToken=20111p7BWShOmlAIP3XQBvNTSz207eTAoPEozE9inKzjwNqKe_tJbnK'
     session.headers = {
         'sec-ch-ua': user_agent,
@@ -178,7 +180,14 @@ def phase_five(session):
         'accept-language': 'en-US,en;q=0.9'
     }
     phase_five_response = session.get(url)
-    return session, phase_five_response
+    okta_nonce_search = re.search(r"nonce=\"(.*?)\"", phase_five_response.text)
+    okta_key_search = re.search(r"okta_key&#x3d;(.*?)\"", phase_five_response.text)
+    script_Tegridy_search = re.search(r"mainScript.integrity = \'(.*?)'", phase_five_response.text)
+    state_token_search = re.search(r"stateToken=(.*?)'", phase_five_response.text)
+    if okta_nonce_search and okta_key_search and script_Tegridy_search and state_token_search:
+        okta_nonce, okta_key, script_Tegridy, state_token = okta_nonce_search.group(1), okta_key_search.group(1), script_Tegridy_search.group(1), state_token_search.group(1)
+    okta_date = phase_five_response.headers.get('Date')
+    return session, phase_five_response, okta_nonce, okta_key, script_Tegridy, state_token, okta_date
 
 def phase_six(session):
     # Complete Okta - Part 2
@@ -363,7 +372,8 @@ def run_logon(username, password):
     phase_two_session, phase_two_response = phase_two(phase_one_session)
     phase_three_session, phase_three_response = phase_three(phase_two_session, phase_one_response)
     phase_four_session, phase_four_response = phase_four(phase_three_session)
-    phase_five_session, phase_five_response = phase_five(phase_four_session)
+    # Added search for Okta none in phase five.
+    phase_five_session, phase_five_response, okta_nonce, okta_key, script_Tegridy, state_token, okta_date = phase_five(phase_four_session)
     phase_six_session, phase_six_response = phase_six(phase_five_session)
     get_token_session, get_token_response = get_token(phase_six_session)
     post_user_session, post_user_response, state_token, okta_id = post_username(username, get_token_session)

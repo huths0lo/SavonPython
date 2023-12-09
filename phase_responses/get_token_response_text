@@ -1,0 +1,5 @@
+get_token_response.text
+'{"token":"3:REMOVED","renewInSec":680,"cookieDomain":null,"rerun":true}\n'
+#I stripped down this response for obvious reasons.
+>>> get_token_response.headers
+{'content-type': 'application/json', 'cache-control': 'no-cache, no-store', 'access-control-allow-origin': '*', 'server-timing': 'bon, total;dur=27.896329', 'server': 'bon', 'keep-alive': 'timeout=60', 'date': 'Sat, 09 Dec 2023 04:10:07 GMT', 'Set-Cookie': 'nlbi_1610354_2147483392=mtykGsxeAk73FDm9wfGJNgAAAAAq9aoDD0fIxuaGTjknKxgY; path=/', 'X-CDN': 'Imperva', 'Content-Encoding': 'gzip', 'Transfer-Encoding': 'chunked', 'X-Iinfo': '10-52766459-52765223 PNYN RT(1702095006563 28) q(0 0 0 -1) r(1 1) U6'}
