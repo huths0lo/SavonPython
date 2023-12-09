@@ -6,3 +6,7 @@ username = 'somedude@somedomain.com' # This isnt my email address.
 password = 'somepassword' # This also isnt my password.
 store_id = '2678' # This is my actual store.  You're welcome to hang out there and hope to spot me at some point.
 coupons = '379356' # Not 100% sure what this number does.  But I will figure it out eventually.  Its needed...
+db_user = 'YOURDBUSER'
+db_pass = 'YOURDBPASSWORD'
+db_server = '127.0.0.1'
+db_port = '5432'

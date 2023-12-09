@@ -1,9 +1,18 @@
 import sqlalchemy
 import pandas.io.sql as psql
-from app_admin.check_create_db import find_db_else_create_new
+import os
+from dotenv import load_dotenv
+import sys
 
-db_file = find_db_else_create_new()
-db_uri = f'sqlite:///{db_file}'
+load_dotenv()
+
+
+
+db_user = os.getenv('db_user')
+db_pass = os.getenv('db_pass')
+db_server = os.getenv('db_server')
+db_port = os.getenv('db_port')
+db_uri = f'postgresql://{db_user}:{db_pass}@{db_server}:{db_port}/savonpy_db'
 
 
 
@@ -21,3 +30,12 @@ def query_db(query):
     return response
 
 
+def test_db_con():
+    try:
+        query_db("SELECT now()")
+    except:
+        print('Unable to connect to database.  Exiting!/n')
+        sys.exit()
+
+
+test_db_con()
