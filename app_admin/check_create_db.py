@@ -2,14 +2,16 @@ import sqlite3
 from sqlite3 import Error
 import os
 import sys
+import fnmatch
 
 from app_admin.sql_commands import DB_SCHEMA, DB_TEST_COMMANDS
 
 db_path = os.getcwd() + '/app_db/'
 db_file_extension = '.sqlite'
 
-import os, fnmatch
-def find(pattern, path):
+
+def find(extension, path):
+    pattern = '*' + extension
     result = []
     for root, dirs, files in os.walk(path):
         for name in files:
