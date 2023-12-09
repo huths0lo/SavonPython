@@ -1,0 +1,1 @@
+This folder is to store the sqlite3 database.  This text file exists so the folder is created when the repo is cloned.
