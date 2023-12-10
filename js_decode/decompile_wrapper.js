@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
+const CircularJSON = require('circular-json');
 
 // Read the JavaScript file
 const jsFilePath = process.argv[2];
@@ -20,8 +21,8 @@ const hexify = (text) => {
 const hexifiedVariable = hexify('STRING');
 const modifiedJsCode = jsCode.replace(/var\s+b\s*=\s*'STRING';/, `var b = '${hexifiedVariable}';`);
 
-// Create a virtual DOM environment
-const { window } = new JSDOM();
+// Create a virtual DOM environment with a permissive localStorage
+const { window } = new JSDOM(``, { url: 'http://www.vons.com', runScripts: 'outside-only' });
 
 // Expose the window object globally
 global.window = window;
@@ -34,5 +35,17 @@ try {
   console.error(error.message);
 }
 
-// Output all variables set in the script
-console.log(window);
+// Extract relevant information and store in a JSON object
+const extractedData = {
+  url: window.location ? window.location.href : null,
+  headers: window.document ? window.document.head.innerHTML : null,
+  variables: CircularJSON.stringify(window, (key, value) => {
+    // Exclude circular references and certain properties
+    if (key === '_localStorage') return undefined;
+    if (value && typeof value === 'object' && value.nodeType) return `[${value.nodeName}]`; // Check for a DOM node
+    return value;
+  }, 2),
+};
+
+// Output the JSON object
+console.log(JSON.stringify(extractedData, null, 2));

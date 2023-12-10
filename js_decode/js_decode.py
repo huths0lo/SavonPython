@@ -7,17 +7,20 @@ import json
 import subprocess
 from datetime import datetime
 import os
+from js_decode.normalize_js import complete_decode, decode_hex_string
 
 is_windows = False
 current_directory = os.getcwd()
 
 wrapper_script = os.path.normpath(current_directory + f'/js_decode/decompile_wrapper.js')
 
-def generate_json_from_js(js_code):
+def generate_json_from_js(base_js):
+    #js_code = complete_decode(base_js)
+    js_code = decode_hex_string(base_js)
     current_timestamp = datetime.now()
     timestamp_string = current_timestamp.strftime("%Y-%m-%d-%H_%M_%S")
     temp_file = os.path.normpath(f'{current_directory}/js_code{timestamp_string}.js')
-    with open(temp_file, 'w') as f:
+    with open(temp_file, 'w', encoding='latin-1') as f:
         f.write(js_code)
     json_vars = call_js_wrapper(temp_file)
     os.remove(temp_file)
@@ -31,7 +34,7 @@ def call_js_wrapper(js_file_path):
         # Extract the standard output
         js_output = result.stdout
         # Parse the JavaScript output as JSON
-        return js_output
+        #return js_output
         parsed_output = json.loads(js_output)
         return parsed_output
     except subprocess.CalledProcessError as e:

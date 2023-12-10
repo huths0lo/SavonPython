@@ -1,14 +1,18 @@
 import re
 import ast
 
-with open('js_script.js', 'r') as f:
-    js_script = f.read()
 
 
-b_value = re.search(r"var b=\"(.*?)\"", js_script).group(1)
+def decode_hex_string(js_script):
+    hex_string = re.search(r"var b=\"(.*?)\"", js_script).group(1)
+    decoded_string = ''
+    for i in range(0, len(hex_string), 2):
+        decoded_string += chr(int(hex_string[i:i+2], 16))
+    return decoded_string
 
 
-def complete_decode(b_value):
+def complete_decode(js_script):
+    b_value = re.search(r"var b=\"(.*?)\"", js_script).group(1)
     new_string = ''
     #string_list = hex_to_ascii(b_value)
     #string_value = ''.join(string_list)
@@ -17,7 +21,8 @@ def complete_decode(b_value):
     for item in string_split:
         if '\\' in item:
             try:
-                temp = '"' + interpret_escaped_binary(item).decode('unicode_escape').decode('latin-1')
+                #temp = '"' + interpret_escaped_binary(item).decode('unicode_escape').decode('latin-1')
+                temp = '"' + interpret_escaped_binary(item).decode('unicode_escape').decode('utf-8')
                 new_string += temp
             except:
                 new_string += '"' + interpret_escaped_binary(item)
@@ -69,5 +74,5 @@ def extract_lists_from_string(input_string):
 
 
 
-decoded = complete_decode(b_value)
+#decoded = complete_decode(b_value)
 #lists = extract_lists_from_string(decoded)
