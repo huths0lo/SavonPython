@@ -29,6 +29,7 @@ def decode_binary_strings(input_string):
     return result
 
 
+
 def find_binary(string_split):
     new_string = "'"
     for item in string_split:
