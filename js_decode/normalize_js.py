@@ -10,37 +10,22 @@ b_value = re.search(r"var b=\"(.*?)\"", js_script).group(1)
 
 def complete_decode(b_value):
     new_string = ''
-    string_list = hex_to_ascii(b_value)
-    string_value = ''.join(string_list)
+    #string_list = hex_to_ascii(b_value)
+    #string_value = ''.join(string_list)
+    string_value = single_string_from_hex(b_value)
     string_split = string_value.split("'")
     for item in string_split:
         if '\\' in item:
             try:
-                temp = '"' + interpret_escaped_binary(item).decode('unicode_escape')
+                temp = '"' + interpret_escaped_binary(item).decode('unicode_escape').decode('latin-1')
                 new_string += temp
             except:
                 new_string += '"' + interpret_escaped_binary(item)
         else:
             new_string += '"' + item
-    return new_string
+    return new_string.replace('"', "'")[1:]
 
 
-
-def complete_decode(b_value):
-    new_string = ''
-    string_list = hex_to_ascii(b_value)
-    string_value = ''.join(string_list)
-    string_split = string_value.split("'")
-    for item in string_split:
-        if '\\' in item:
-            try:
-                temp = '"' + interpret_escaped_binary(item).decode('unicode_escape')
-                new_string += temp
-            except:
-                new_string += '"' + interpret_escaped_binary(item)
-        else:
-            new_string += '"' + item
-    return new_string
 
 
 def single_string_from_hex(b):
