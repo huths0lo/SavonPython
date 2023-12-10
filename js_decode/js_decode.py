@@ -8,13 +8,15 @@ import subprocess
 from datetime import datetime
 import os
 
+is_windows = False
 current_directory = os.getcwd()
-wrapper_script = current_directory + '/js_decode/decompile_wrapper.js'
+
+wrapper_script = os.path.normpath(current_directory + f'/js_decode/decompile_wrapper.js')
 
 def generate_json_from_js(js_code):
     current_timestamp = datetime.now()
-    timestamp_string = current_timestamp.strftime("%Y-%m-%d-%H:%M:%S")
-    temp_file = f'{current_directory}/js_code{timestamp_string}.js'
+    timestamp_string = current_timestamp.strftime("%Y-%m-%d-%H_%M_%S")
+    temp_file = os.path.normpath(f'{current_directory}/js_code{timestamp_string}.js')
     with open(temp_file, 'w') as f:
         f.write(js_code)
     json_vars = call_js_wrapper(temp_file)
