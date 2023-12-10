@@ -1,9 +1,29 @@
 import re
+import ast
 
 b_value = re.search(r"var b=\"(.*?)\"", test).group(1)
 b_split = b_value.split('39')
 get_eval_js = re.search(r"eval(.*?)\}", test).group(1)
 
+string_list = hex_to_ascii(b_value)
+string_split = string_value.split("'")
+
+decoded_string = interpret_escaped_binary(string_value)
+string_value = ''.join(string_list)
+
+decoded = find_binary(string_split)
+
+def complete_decode(b_value):
+    new_string = ''
+    string_list = hex_to_ascii(b_value)
+    string_value = ''.join(string_list)
+    string_split = string_value.split("'")
+    for item in string_split:
+        if '\\' in item:
+            new_string += '"' + interpret_escaped_binary(item)
+        else:
+            new_string += '"' + item
+    return new_string
 
 def hex_to_ascii(b):
     string_list = []
@@ -44,17 +64,19 @@ string_list = hex_to_ascii(b_value)
 string_value = ''.join(string_list)
 # Example usage:
 string_split = string_value.split("'")
+all_bin = interpret_escaped_binary(binary_string)
 
 
 
-decoded_string = interpret_escaped_binary(string_value)
 
-# Example usage:
-input_string = "var _0x01c1=['\\x77\\x71\\x38\\x61\\x65\\x41\\x3d\\x3d','\\x77\\x71\\x4e\\x36\\x41\\x73\\x4b\\x6d\\x77\\x72\\x50\\x43\\x76\\x67\\x3d\\x3d','\\x77\\x35\\x48\\x44\\x6e\\x6c\\x6a\\x43\\x74\\x41\\x3d\\x3d'"
-decoded_result = decode_binary_strings(input_string)
 
-print("Original Input String:", input_string)
-print("Decoded Result:", decoded_result)
+def extract_lists_from_string(input_string):
+    # Use a regular expression to find all lists in the input string
+    list_pattern = r'\[.*?\]'
+    lists_found = re.findall(list_pattern, input_string)
+    # Convert the found strings to Python lists using ast.literal_eval
+    extracted_lists = [ast.literal_eval(lst) for lst in lists_found]
+    return extracted_lists
 
 
 
