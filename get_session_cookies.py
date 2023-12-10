@@ -3,6 +3,7 @@ import json
 import random
 import time
 import re
+from js_decode.js_decode import generate_json_from_js
 
 
 
@@ -371,6 +372,8 @@ def run_logon(username, password):
     phase_one_session, phase_one_response, cookie_visid_incap, cookie_nlbi, cookie_incap_ses = phase_one()
     phase_two_session, phase_two_response = phase_two(phase_one_session)
     phase_three_session, phase_three_response = phase_three(phase_two_session, phase_one_response)
+    js_script = phase_three_response.text[:-1]
+    phase_three_iframe = generate_json_from_js(js_script)
     phase_four_session, phase_four_response = phase_four(phase_three_session)
     # Added search for Okta none in phase five.
     phase_five_session, phase_five_response, okta_nonce, okta_key, script_Tegridy, state_token, okta_date = phase_five(phase_four_session)

@@ -17,3 +17,5 @@ Ideally I'd like to create a python script that can do the same thing.  But sinc
 For now, this should give me what I desperately needed.  To use it, you must have node.js installed, along with the jsdom module.
 
 npm install jsdom
+
+npm install fs jsdom circular-jsonc

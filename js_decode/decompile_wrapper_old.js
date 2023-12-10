@@ -26,13 +26,35 @@ const { window } = new JSDOM();
 // Expose the window object globally
 global.window = window;
 
+// Variable to store the JSON
+let scriptOutput = null;
+
 // Run the modified JavaScript code
 try {
   // Use the built-in vm module to run the script
   require('vm').runInThisContext(modifiedJsCode, { filename: jsFilePath });
+
+  // Extract specific properties from the window object
+  const extractedData = {
+    url: window.location.href,
+    headers: window.navigator.userAgent,
+    variables: {
+      // Add other properties you need here
+    },
+  };
+
+  // Convert to JSON
+  scriptOutput = JSON.stringify(extractedData, null, 2);
 } catch (error) {
   console.error(error.message);
 }
 
-// Output all variables set in the script
-console.log(window);
+// Print the modified JSON
+if (scriptOutput) {
+  // Remove escape characters and delete keys with null values
+  const cleanedOutput = JSON.stringify(JSON.parse(scriptOutput, (key, value) => (value === null ? undefined : value)));
+
+  console.log(cleanedOutput);
+} else {
+  console.error('Script execution failed.');
+}

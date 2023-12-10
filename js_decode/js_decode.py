@@ -31,6 +31,7 @@ def call_js_wrapper(js_file_path):
         # Extract the standard output
         js_output = result.stdout
         # Parse the JavaScript output as JSON
+        return js_output
         parsed_output = json.loads(js_output)
         return parsed_output
     except subprocess.CalledProcessError as e:
