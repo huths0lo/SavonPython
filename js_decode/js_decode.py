@@ -20,7 +20,7 @@ def generate_json_from_js(base_js):
     current_timestamp = datetime.now()
     timestamp_string = current_timestamp.strftime("%Y-%m-%d-%H_%M_%S")
     temp_file = os.path.normpath(f'{current_directory}/js_code{timestamp_string}.js')
-    with open(temp_file, 'w', encoding='latin-1') as f:
+    with open(temp_file, 'w', encoding='utf-8') as f:
         f.write(js_code)
     json_vars = call_js_wrapper(temp_file)
     os.remove(temp_file)

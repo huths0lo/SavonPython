@@ -1,6 +1,6 @@
 import re
 import ast
-
+from js_decode.animals import animals
 
 
 def decode_hex_string(js_script):
@@ -9,6 +9,33 @@ def decode_hex_string(js_script):
     for i in range(0, len(hex_string), 2):
         decoded_string += chr(int(hex_string[i:i+2], 16))
     return decoded_string
+
+
+def simplify_js_variables(js_script):
+    variable_names, function_names = extract_variables_and_functions(js_script)
+    new_variables, new_functions = new_words_with_prefix(variable_names, 'var'), new_words_with_prefix(function_names, 'func')
+    decoded_with_variables = replace_words(js_script, variable_names, new_variables)
+    decoded_with_functions = replace_words(decoded_with_variables, function_names, new_functions)
+    return decoded_with_functions
+
+def new_words_with_prefix(ordered_list, prefix):
+    new_words = generate_animal_list(ordered_list)
+    new_list = []
+    for word in new_words:
+        new_list.append(f'{prefix}_{word}')
+    return new_list
+
+
+
+def replace_words(long_string, words_to_replace, replacement_words):
+    for word_to_replace, replacement_word in zip(words_to_replace, replacement_words):
+        long_string = long_string.replace(word_to_replace, str(replacement_word))
+    return long_string
+
+
+def generate_animal_list(input_list):
+    return [f'{animals[i + 1]}' for i in range(len(input_list))]
+
 
 
 def complete_decode(js_script):
@@ -30,6 +57,28 @@ def complete_decode(js_script):
             new_string += '"' + item
     return new_string.replace('"', "'")[1:]
 
+
+def simplify_variable_names(js_code):
+    # Extract variable names
+    variable_pattern = r'\bvar\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\b'
+    variable_names = re.findall(variable_pattern, js_code)
+    # Create a list of simplified names
+    simplified_names = [f'var_{i + 1}' for i in range(len(variable_names))]
+    # Replace variable names with simplified names in the JavaScript code
+    for old_name, new_name in zip(variable_names, simplified_names):
+        js_code = js_code.replace(old_name, new_name)
+    return simplified_names, js_code
+
+
+
+def extract_variables_and_functions(js_code):
+    # Regular expressions for variable and function names
+    variable_pattern = r'\bvar\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\b'
+    function_pattern = r'\bfunction\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\b'
+    # Find all variable and function names using regular expressions
+    variable_names = re.findall(variable_pattern, js_code)
+    function_names = re.findall(function_pattern, js_code)
+    return variable_names, function_names
 
 
 
