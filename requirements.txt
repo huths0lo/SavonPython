@@ -1,2 +1,4 @@
 sqlalchemy==2.0.18
 pandas==2.0.3
+requests==2.31.0
+bs4==0.0.1
