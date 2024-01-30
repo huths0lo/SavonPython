@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../PyTater/.idea/PyTater.iml" filepath="$PROJECT_DIR$/../PyTater/.idea/PyTater.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SavonPython.iml" filepath="$PROJECT_DIR$/.idea/SavonPython.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../starch_road/.idea/starch_road.iml" filepath="$PROJECT_DIR$/../starch_road/.idea/starch_road.iml" />
     </modules>
   </component>
 </project>
